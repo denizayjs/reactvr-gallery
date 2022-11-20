@@ -9,6 +9,9 @@ class Canvas extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ src: nextProps.src });
+  }
   render() {
     return <Pano source={asset(this.state.src)}></Pano>;
   }

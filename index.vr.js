@@ -1,6 +1,30 @@
 import React from "react";
 import { AppRegistry, asset, Pano, Text, View } from "react-vr";
 import Canvas from "./components/Canvas";
+import UI from "./components/UI";
+
+const Confing = [
+  {
+    key: 0,
+    imageSrc: "reactconf_00.jpg",
+    buttonImageSrc: "button-00.png",
+  },
+  {
+    key: 1,
+    imageSrc: "reactconf_01.jpg",
+    buttonImageSrc: "button-01.png",
+  },
+  {
+    key: 2,
+    imageSrc: "reactconf_02.jpg",
+    buttonImageSrc: "button-02.png",
+  },
+  {
+    key: 3,
+    imageSrc: "reactconf_03.jpg",
+    buttonImageSrc: "button-03.png",
+  },
+];
 
 export default class REACTVR_GALLERY extends React.Component {
   constructor() {
@@ -10,10 +34,17 @@ export default class REACTVR_GALLERY extends React.Component {
       src: "reactconf_00.jpg",
     };
   }
+
   render() {
     return (
       <View>
         <Canvas src={this.state.src} />
+        <UI
+          buttonConfing={Confing}
+          onClick={(key) => {
+            this.setState({ src: Confing[key].imageSrc });
+          }}
+        />
       </View>
     );
   }
